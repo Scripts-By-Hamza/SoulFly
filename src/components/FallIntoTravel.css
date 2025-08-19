@@ -1,0 +1,58 @@
+/* Fall into travel section */
+.fall-travel { padding: 32px 0 56px; }
+.fall-travel .container { max-width:1200px; margin:0 auto; padding:0 20px; }
+
+.fall-head { display:flex; align-items:flex-start; justify-content:space-between; gap:16px; margin-bottom:16px; }
+.fall-head h2 { margin:0 0 6px; }
+.fall-head p { margin:0; color:#667085; max-width:680px; }
+.see-all { border:1px solid #cfeee3; background:#ecfbf5; color:#2b5b4c; padding:8px 14px; border-radius:10px; cursor:pointer; }
+.see-all:hover { background:#ddf6ee; }
+
+.fall-grid { display:grid; grid-template-columns: repeat(4, 1fr); gap:16px; }
+.fall-card { position:relative; border-radius:14px; overflow:hidden; background:#000; box-shadow: 0 12px 24px rgba(0,0,0,0.25); }
+.image-wrap { position:relative; padding-top: 125%; }
+.image-wrap img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; filter:brightness(0.85); }
+
+.overlay { position:absolute; inset:0; display:flex; flex-direction:column; gap:12px; padding:16px; background: linear-gradient(180deg, rgba(0,0,0,0) 40%, rgba(0,0,0,0.65) 100%); }
+.info { display:flex; align-items:flex-end; justify-content:space-between; gap:12px; margin-top:auto; }
+.overlay h3 { color:#ffffff; margin:0 0 2px; }
+.overlay p { color:#ffffff; margin:0; }
+.fall-price { margin-left:12px; font-weight:900; color:#ffffff; font-size:1.1rem; white-space:nowrap; }
+.book { display:block; align-self:center; margin:8px auto 0; background:#8DD3BB; color:#ffffff; border:1px solid rgba(255,255,255,0.12); padding:12px 20px; border-radius:10px; font-weight:700; cursor:pointer; width:auto; }
+.book:hover { background:#7BC4A8; }
+
+@media (max-width: 1024px){ .fall-grid { grid-template-columns: repeat(2, 1fr);} }
+@media (max-width: 576px){ .fall-grid { grid-template-columns: 1fr; } .fall-head { flex-direction:column; align-items:flex-start; } .book { width:100%; } }
+
+/* Tours-specific interactions (scoped) */
+.tours .fall-card { transition: transform .25s ease, box-shadow .25s ease; }
+.tours .fall-card.expanded { transform: translateY(-4px) scale(1.02); box-shadow: 0 16px 28px rgba(0,0,0,0.35); }
+/* Duller image when expanded */
+.tours .fall-card.expanded .image-wrap img { filter: brightness(0.6) saturate(0.9); }
+
+/* Hide info block when expanded */
+.tours .info.hidden { display: none; }
+
+/* Itinerary panel */
+.tours .itinerary { 
+  display: none; 
+  color: #ffffff; 
+  background: rgba(0,0,0,0.25);
+  padding: 8px 10px; 
+  border-radius: 10px;
+}
+.tours .fall-card.expanded .itinerary { display: block; }
+.tours .itinerary h4 { margin: 0 0 4px; font-weight: 800; font-size: 0.95rem; }
+.tours .itinerary ul { margin: 0; padding-left: 16px; font-size: 0.85rem; line-height: 1.25; }
+.tours .itinerary li { margin-bottom: 2px; }
+
+/* Actions row with two buttons */
+.tours .actions { display:flex; gap:10px; justify-content:center; margin-top:8px; }
+.tours .secondary { 
+  display:block; align-self:center; 
+  margin:8px auto 0; background:transparent; color:#ffffff; 
+  border:1px solid rgba(255,255,255,0.45); padding:12px 20px; 
+  border-radius:10px; font-weight:700; cursor:pointer; width:auto; 
+}
+.tours .secondary:hover { background: rgba(255,255,255,0.08); }
+
